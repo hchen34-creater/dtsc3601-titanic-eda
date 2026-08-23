@@ -1,62 +1,69 @@
 # Titanic Streamlit Exploratory Data Analysis
 
-An interactive Streamlit application for exploring passenger data from the Titanic. The project provides an approachable introduction to exploratory data analysis (EDA), combining dataset inspection, summary statistics, and visual analysis of survival patterns and passenger characteristics.
+An introductory exploratory data analysis (EDA) project that uses the Titanic dataset and a Streamlit interface to make core data-inspection and visualization techniques easy to explore.
+
+## Project Overview
+
+This application loads Titanic passenger data, presents a quick dataset overview, and summarizes the data through tables and charts. It explores common introductory EDA questions, including who survived, how survival varied by sex and passenger class, and how passenger ages and fares were distributed.
 
 ## Dataset
 
-The dataset is located at `data/titanic.csv` and contains passenger-level information, including:
+The project uses [`data/titanic.csv`](data/titanic.csv), which contains passenger-level records. Main variables include:
 
-- Survival status
-- Passenger class
-- Sex and age
-- Family relationships
-- Fare and cabin details
-- Embarkation port
+`PassengerId`, `Survived`, `Pclass`, `Name`, `Sex`, `Age`, `SibSp`, `Parch`, `Ticket`, `Fare`, `Cabin`, and `Embarked`.
 
-## Exploratory Data Analysis
+## EDA Performed
 
-The app supports the following EDA activities:
+- Dataset dimensions and preview
+- Descriptive statistics
+- Missing-value analysis
+- Survival by sex
+- Survival by passenger class
+- Age distribution
+- Fare distribution
 
-- Previewing the dataset and calculating descriptive statistics
-- Checking the dataset's row and column counts
-- Identifying missing values, particularly in `Age` and `Cabin`
-- Exploring the relationship between survival, sex, and passenger class
-- Examining the distributions of passenger age and fare
+## Key Findings
+
+- More passengers did not survive than survived.
+- Female passengers had substantially higher survival counts than male passengers.
+- First-class passengers had better survival outcomes than third-class passengers.
+- `Age` and `Cabin` contain missing values.
+- Fare is strongly right-skewed because of a small number of expensive tickets.
 
 ## Visualizations
 
-The app includes:
+![Dashboard Overview](screenshots/overview.png)
 
-- Overall survival count chart
-- Survival-by-sex count chart
-- Survival-by-passenger-class count chart
-- Age histogram
-- Fare histogram
+![Visualizations](screenshots/visualizations.png)
 
-## Main Findings
+## How to Run
 
-- More passengers did not survive than survived.
-- Survival differed substantially by sex and passenger class.
-- `Age` and `Cabin` contain missing values that should be considered in further analysis.
-- Most fares are relatively low, with a small number of high-fare passengers.
-
-## Screenshots
-
-### Overview
-
-![Application overview](screenshots/overview.png)
-
-### Visualizations
-
-![EDA visualizations](screenshots/visualizations.png)
-
-## Run Locally
-
-This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management. From the project directory, run:
 
 ```powershell
 uv sync
 uv run streamlit run app.py
 ```
 
-Open the local URL displayed in the terminal, typically `http://localhost:8501`.
+Streamlit will normally make the app available locally at [http://localhost:8501](http://localhost:8501).
+
+## Technologies
+
+- Python
+- Streamlit
+- pandas
+- Matplotlib
+- Seaborn
+- uv
+
+## Project Structure
+
+```text
+app.py                 # Streamlit EDA application
+data/titanic.csv       # Titanic dataset
+screenshots/           # Application screenshots
+requirements.txt       # Python dependencies
+pyproject.toml         # Project configuration
+uv.lock                # Locked dependency versions
+.gitignore             # Git ignore rules
+```
