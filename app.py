@@ -35,15 +35,15 @@ col1.metric("Rows", row_count)
 col2.metric("Columns", column_count)
 
 st.subheader("Dataset preview")
-st.dataframe(df.head(10), use_container_width=True)
+st.dataframe(df.head(10), width="stretch")
 
 st.subheader("Descriptive statistics")
-st.dataframe(df.describe(include="all").transpose(), use_container_width=True)
+st.dataframe(df.describe(include="all").transpose(), width="stretch")
 
 st.subheader("Missing values")
 missing_values = df.isna().sum().reset_index()
 missing_values.columns = ["Column", "Missing values"]
-st.dataframe(missing_values, use_container_width=True, hide_index=True)
+st.dataframe(missing_values, width="stretch", hide_index=True)
 
 st.header("Visualizations")
 
